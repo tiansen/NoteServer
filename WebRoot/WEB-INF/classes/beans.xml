@@ -32,11 +32,11 @@
 		<property name="idleConnectionTestPeriod" value="60"/>
 	</bean>
 	
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		 <property name="mappingResources">
+		 <property name="annotatedClasses">
 			    <list>
-			   		<!--<value>com.ferraborghini.model.Student</value>  -->
+			   		<value>com.ferraborghini.bean.Note</value>
 			    </list>
 		</property>
 		 <property name="hibernateProperties">
