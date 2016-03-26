@@ -20,36 +20,30 @@ import com.ferraborghini.service.IServiceManager;
 import com.ferraborghini.service.impl.ServiceManager;
 import com.ferraborghini.servlet.base.BaseServlet;
 
-@WebServlet(urlPatterns="/note/login.jsp")
-public class LoginServlet extends BaseServlet{
+@WebServlet(urlPatterns="/note/addUser.jsp")
+public class addUser extends BaseServlet{
 	
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		String name = request.getParameter("name");
 		String pwd = request.getParameter("pwd");
+		String sex = request.getParameter("sex");
+		String label = request.getParameter("label");
 		// 获取系统的业务逻辑组件
-		
+		User user = new User(name, pwd, sex, label);
 		// 验证用户登录
 		//此处只能用接口
 		IServiceManager serviceManager = (IServiceManager)getCtx().getBean("mgr");
-		User u = serviceManager.validLogin(name , pwd);
+		Boolean flag = serviceManager.addUser(user);
 		response.setContentType("text/html; charset=utf-8");
 		// 登录成功
-		if (u!=null)
-		{
-			request.getSession(true).setAttribute("name" , name);
+		System.out.println(flag);
+		if (flag) {
+			response.getWriter().println("OK");
+		}else{
+			response.getWriter().println("FALSE");
 		}
-		try
-		{
-			// 把验证的userId封装成JSONObject
-			JSONObject jsonObj = new JSONObject()
-				.fromObject(u);
-			// 输出响应
-			response.getWriter().println(jsonObj.toString());
-		}
-		catch (JSONException ex)
-		{
-			ex.printStackTrace();
-		}
+			
+		
 	}
 }

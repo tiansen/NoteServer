@@ -15,7 +15,7 @@ public class TestServlet extends BaseServlet {
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		response.setContentType("text/html; charset=utf-8");		
-		response.getWriter().println("恭喜您，竞价成功!");
+		response.getWriter().println("服务器连接成功");
 
 	}
 }

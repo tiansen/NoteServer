@@ -19,9 +19,9 @@
 		<property name="user" value="root" />
 		<property name="password" value="123456" />
 		<!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
-		<property name="initialPoolSize" value="1" />
+		<property name="initialPoolSize" value="10" />
 		<!--连接池中保留的最小连接数。 -->
-		<property name="minPoolSize" value="1" />
+		<property name="minPoolSize" value="10" />
 		<!--连接池中保留的最大连接数。Default: 15 -->
 		<property name="maxPoolSize" value="300" />
 		<!--最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->

@@ -7,18 +7,34 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
+
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class User {
+	public User() {
+	}
+
+	public User(String name, String pwd, String sex, String label) {
+		super();
+		this.name = name;
+		this.pwd = pwd;
+		this.sex = sex;
+		this.label = label;
+	}
+
 	@Id
-	@Column(name="name")
-	@Setter @Getter
+	@Column(name = "name")
+	@Setter
+	@Getter
 	String name;
-	@Setter @Getter
+	@Setter
+	@Getter
 	String pwd;
-	@Setter @Getter
+	@Setter
+	@Getter
 	String sex;
-	@Setter @Getter
+	@Setter
+	@Getter
 	String label;
-	
+
 }
